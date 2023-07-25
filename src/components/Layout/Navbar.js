@@ -11,6 +11,7 @@ const Navbar = () => {
 
 
   const [user, loading, error] = useAuthState(auth);
+  console.log("🚀 ~ file: Navbar.js:14 ~ Navbar ~ user:", user)
   const [signOut ] = useSignOut(auth);
   console.log("🚀 ~ file: Navbar.js:9 ~ Navbar ~ session:", session);
 
