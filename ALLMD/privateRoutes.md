@@ -2,9 +2,11 @@
 
 
 #### create src>middleWare.js :::
+```js
     export { default } from "next-auth/middleware"
 
     export const config = { matcher: ["/profile",'addProductt'] }
+```
 
 ### .env.local :::
     NEXTAUTH_SECRET=abcd1234
@@ -14,7 +16,8 @@ restart the project
 
 ### redirect the project (add pages property >>>) >>>
 
-      export const authOptions = {
+```js
+     export const authOptions = {
         // Configure one or more authentication providers
         providers: [
             GithubProvider({
@@ -31,3 +34,4 @@ restart the project
             signIn:'/login'
         }
         }
+```

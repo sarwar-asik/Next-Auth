@@ -1,13 +1,18 @@
 ### Impleament Nextjs Authentication >>>
 
 ### install :::
-    npm install next-auth
+
+
+```
+ npm install next-auth
+```
 
 
 ## Github Auth
 
 #### create a src>pages>api>auth>[...nextAuth].js 
-      import NextAuth from "next-auth"
+```js
+ import NextAuth from "next-auth"
         import GithubProvider from "next-auth/providers/github"
 
         export const authOptions = {
@@ -23,14 +28,16 @@
 
         export default NextAuth(authOptions)
 
+```
 ### get Github  secrete  and id from :
-    https://github.com/settings/applications/new  
+https://github.com/settings/applications/new  
 
 
 ### src>pages>_app ::::
 
 
-        import { SessionProvider } from "next-auth/react"
+```js
+  import { SessionProvider } from "next-auth/react"
 
         export default function App({ Component, pageProps }) {
         return (
@@ -42,12 +49,15 @@
         </SessionProvider>
         );
         }
+```
 
 
 
 ### src>pages>login.js ::::
 
-        <button onClick={()=>signIn(
+```js
+
+     <button onClick={()=>signIn(
             'github',
             {
               callbackUrl:"http://localhost:3000/"
@@ -55,7 +65,10 @@
             )} >
         Login
         </button>
+```
 ### src>pages>Navbar (for get user ):::
+
+```js
     import { useSession, signIn, signOut } from "next-auth/react"
     export default function Component() {
     const { data: session } = useSession()
@@ -74,3 +87,4 @@
         </>
     )
     }
+```

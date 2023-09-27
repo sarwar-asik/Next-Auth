@@ -1,13 +1,14 @@
 ### Impleament Nextjs Authentication >>>
 
 ### install :::
-    npm install next-auth
+  ```  npm install next-auth```
 
 
 ## Google Auth
 
 #### create a src>pages>api>auth>[...nextAuth].js 
-    import NextAuth from "next-auth"
+```js
+  import NextAuth from "next-auth"
     import GithubProvider from "next-auth/providers/github"
     import GoogleProvider from "next-auth/providers/google";
 
@@ -28,16 +29,19 @@
 
     export default NextAuth(authOptions)
 
+```
 ### get Google  secrete  and id from :
 
-    https://console.cloud.google.com/apis/credentials 
-    ** 1 ** create project 
-    ** 2 ** click OAuth consent screen (left slider) >
+https://console.cloud.google.com/apis/credentials 
+
+- **1 ** create project 
+
+- ** 2 ** click OAuth consent screen (left slider) >
          select 🧧 external>>
           fillup >>>:
             AppName ,userSupportEmail ,Application home page,Email address
          save 
-     **3 **  click Credential (left slider)>
+- **3 **  click Credential (left slider)>
            click +CREATE CREDENTIALS>>
              OAuth Client ID >>>
                select : Web Application
@@ -51,6 +55,7 @@
 ### src>pages>_app ::::
 
 
+```js
         import { SessionProvider } from "next-auth/react"
 
         export default function App({ Component, pageProps }) {
@@ -65,9 +70,11 @@
         }
 
 
+```
 
 ### src>pages>login.js ::::
 
+```js
         <button onClick={()=>signIn(
             'google',
             {
@@ -76,7 +83,10 @@
             )} >
         Login
         </button>
+```
 ### src>pages>Navbar (for get user ):::
+```js
+
     import { useSession, signIn, signOut } from "next-auth/react"
     export default function Component() {
     const { data: session } = useSession()
@@ -95,3 +105,4 @@
         </>
     )
     }
+```
